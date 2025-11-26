@@ -1123,7 +1123,7 @@ Returns:
 
     if adjust: # FDR adjustment
         prev_pvalue_cutoff_y = -np.log10(alpha)
-        cutoff_adjusted = sm.stats.multipletests(probe_stats["PValue"], alpha=kwargs.get('fwer',0.1), method="fdr_bh")
+        cutoff_adjusted = sm.stats.multipletests(stats_results["PValue"], alpha=kwargs.get('fwer',0.1), method="fdr_bh")
         pvalue_cutoff_y = -np.log10(cutoff_adjusted[3])
         total_sig_probes = sum(cutoff_adjusted[0])
         if verbose:
